@@ -1,0 +1,10 @@
+<launch>
+	<include file="$(find match_gazebo)/launch/match_world_common.launch">
+		 <arg name="world_name" default="empty world"/>
+	</include>
+
+	<include file="$(find mir_launch_sim)/launch/mir_100.launch"/>
+
+    <!-- <node name ="move_03" pkg = "launch_marco" type = "move_task_03.py"/> -->
+
+</launch>

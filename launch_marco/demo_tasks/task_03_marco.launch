@@ -1,0 +1,9 @@
+<launch>
+	<include file="$(find match_gazebo)/launch/match_world_common.launch">
+		 <arg name="world_name" value="big_square"/>
+	</include>
+
+	<include file="$(find mir_launch_sim)/launch/mir_200.launch"/>
+
+    <node type= "rviz" name="rviz_mir_200" pkg="match_gazebo" args="-d $(find match_gazebo)/launch/match_world_common.launch"></node>
+</launch>

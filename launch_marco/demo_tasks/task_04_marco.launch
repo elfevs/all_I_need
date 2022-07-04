@@ -1,0 +1,76 @@
+<launch>
+
+	<!-- map -->
+	<include file="$(find match_gazebo)/launch/match_world_common.launch" pass_all_args="true">
+        <arg name="world_name" value="big_square"/>
+	</include>
+
+
+	
+
+	<!-- ROBOT_1 -->
+
+	<!-- <group ns="robot1">
+		<arg name="tf_prefix"    default="" />
+		<arg name="robot_x"   default="0.0" />
+		<arg name="robot_y"   default="0.5" />
+		<arg name="robot_yaw" default="0.0" />  
+		<arg name="model_name" default=""/>
+		<arg name="robot_urdf_path" value="$(find mir_description)/urdf/mir_100/mir_100.gazebo.urdf"/>
+
+		<arg name="move_base_selector" default="move_base" />
+		<arg name="start_move_base_simple" default="false" doc="If set to true this will launch the move_base_simple_relay node which controls the more complex move_base_flex action interface with a single goal topic" />
+		<arg name="global_planner" default="GlobalPlanner" />
+		<arg name="global_planner_config" default="$(find mir_navigation)/config/Planner/GlobalPlanner/$(arg global_planner).yaml" />
+		<arg name="local_planner" default="DWAPlannerROS" />
+		<arg name="local_planner_config" default="$(find mir_navigation)/config/Planner/LocalPlanner/$(arg local_planner).yaml" />
+
+		<include file="$(find mir_launch_sim)/launch/utils/general_mir.launch">
+			<arg name="tf_prefix" value="$(arg tf_prefix)"/>
+			<arg name="robot_x"  value="$(arg robot_x)"/>
+			<arg name="robot_y"  value="$(arg robot_y)"/>
+			<arg name="robot_yaw"  value="$(arg robot_yaw)"/>
+			<arg name="model_name" value="$(arg model_name)"/>
+			<arg name="robot_urdf_path" value="$(arg robot_urdf_path)"/>
+
+			<arg name="move_base_selector" value="$(arg move_base_selector)"/>
+			<arg name="start_move_base_simple" value="$(arg start_move_base_simple)" />
+			<arg name="global_planner" value="$(arg global_planner)" />
+			<arg name="global_planner_config" value="$(arg global_planner_config)" />
+			<arg name="local_planner" value="$(arg local_planner)" />
+			<arg name="local_planner_config" value="$(arg local_planner_config)" />
+		</include>
+	 </group> -->
+
+	 <arg name = "robot1_name" default="mir1"/>
+
+	 <arg name = "robot2_name" default="mir2"/>
+
+	 <arg name = "robot3_name" default="mir3"/>
+
+
+	 <include file="$(find mir_launch_sim)/launch/mir_200.launch" ns="$(arg robot1_name)" pass_all_args="true">
+		<arg name="robot_x"     default="0.0" />
+		<arg name="robot_y"     default="-2.0" />
+		<arg name="robot_yaw"   default="0.0" /> 
+		<arg name="tf_prefix"   default="$(arg robot1_name)" />       
+		<arg name="model_name"  default="$(arg robot1_name)"/>
+	</include>
+  
+	 <include file="$(find mir_launch_sim)/launch/mir_200.launch" ns="$(arg robot2_name)" pass_all_args="true">
+		<arg name="robot_x"     default="0.0" />
+		<arg name="robot_y"     default="2.0" />
+		<arg name="robot_yaw"   default="0.0" /> 
+		<arg name="tf_prefix"   default="$(arg robot2_name)" />       
+		<arg name="model_name"  default="$(arg robot2_name)"/>
+	</include>
+<!-- 
+	<include file="$(find mir_launch_sim)/launch/mir_200.launch" ns="$(arg robot3_name)" pass_all_args="true">
+		<arg name="robot_x"     default="0.0" />
+		<arg name="robot_y"     default="-2.0" />
+		<arg name="robot_yaw"   default="0.0" /> 
+		<arg name="tf_prefix"   default="$(arg robot3_name)" />       
+		<arg name="model_name"  default="$(arg robot3_name)"/>
+	</include> -->
+
+</launch>
